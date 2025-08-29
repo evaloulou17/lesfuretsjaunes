@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import {
@@ -16,7 +15,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Loader2, ChevronRight } from "lucide-react"
+import { Loader2, ChevronRight, Mail } from "lucide-react"
 
 export function ContactFormDialog() {
   const [isOpen, setIsOpen] = useState(false)
@@ -84,6 +83,21 @@ export function ContactFormDialog() {
     }
   }
 
+  const handleEmailDirect = () => {
+    const subject = encodeURIComponent("Contact depuis le site Les Furets Jaunes")
+    const body = encodeURIComponent(`Bonjour,
+
+Je souhaite obtenir des informations sur le club de spéléologie Les Furets Jaunes.
+
+Nom : 
+Email : 
+Message : 
+
+Cordialement`)
+
+    window.open(`mailto:lesfuretsjaunes@gmail.com?subject=${subject}&body=${body}`, "_blank")
+  }
+
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
@@ -96,7 +110,7 @@ export function ContactFormDialog() {
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-gray-900">Contactez-nous</DialogTitle>
           <DialogDescription className="text-gray-600">
-            Remplissez le formulaire ci-dessous pour nous envoyer un message.
+            Remplissez le formulaire ci-dessous ou contactez-nous directement par email.
           </DialogDescription>
         </DialogHeader>
 
@@ -106,6 +120,18 @@ export function ContactFormDialog() {
             Venez nous rencontrer à notre réunion hebdomadaire tous les jeudis à 20h30 au CCAS de Seyssins. Vous pouvez
             également contacter Pascal Groseil, Président du Club, au +33 7 64 88 09 58.
           </p>
+        </div>
+
+        {/* Bouton email direct en cas de problème */}
+        <div className="mb-4">
+          <Button
+            onClick={handleEmailDirect}
+            variant="outline"
+            className="w-full border-yellow-400 text-yellow-700 hover:bg-yellow-50 bg-transparent"
+          >
+            <Mail className="w-4 h-4 mr-2" />
+            Envoyer un email directement
+          </Button>
         </div>
 
         <form onSubmit={handleSubmit} className="grid gap-4 py-4">
@@ -178,7 +204,9 @@ export function ContactFormDialog() {
           {submissionStatus === "error" && (
             <div className="p-3 bg-red-50 border border-red-200 rounded-md">
               <p className="text-red-700 text-sm font-medium">❌ Une erreur est survenue.</p>
-              <p className="text-red-600 text-xs mt-1">Veuillez réessayer ou nous contacter directement.</p>
+              <p className="text-red-600 text-xs mt-1">
+                Utilisez le bouton "Email direct" ci-dessus ou contactez-nous directement.
+              </p>
             </div>
           )}
 
