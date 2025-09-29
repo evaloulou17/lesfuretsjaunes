@@ -21,6 +21,18 @@ import { ContactFormDialog } from "@/components/contact-form-dialog"
 export default function FuretsJaunesWebsite() {
   const newsItems = [
     {
+      date: "Annuel",
+      title: "Camps Dépollution Hauts-Plateaux - Protection Environnement",
+      description:
+        "Cette sortie annuelle sert à protéger notre réserve et prospecter les potentielles grottes du coin. Un engagement écologique pour préserver les sites souterrains des Hauts-Plateaux du Vercors et nous permettre de faire de la prospection, explorer de nouvelles grottes.",
+      participants: "Sortie annuelle",
+      image: "/images/hauts-plateaux-depollution.jpeg",
+      alt: "Camp dépollution Hauts-Plateaux - Spéléologues protégeant la réserve naturelle du Vercors, paysage de montagne avec cabane et forêts de pins",
+      badge: "Nouveau",
+      linkText: "Voir la vidéo",
+      linkHref: "https://www.facebook.com/reel/1278369720685161",
+    },
+    {
       date: "29 Juin 2025",
       title: "Canyon des Écouges 2 - Sortie Canyoning Isère",
       description:
@@ -312,7 +324,7 @@ export default function FuretsJaunesWebsite() {
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Mountain className="w-5 h-5 mr-2 text-yellow-600" />
-                  Spéléologie Isère
+                  Spéléologie
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -343,7 +355,7 @@ export default function FuretsJaunesWebsite() {
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Waves className="w-5 h-5 mr-2 text-yellow-600" />
-                  Canyoning Isère
+                  Canyoning
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -468,22 +480,26 @@ export default function FuretsJaunesWebsite() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600 mb-4">{item.description}</p>
-                  <div className="flex items-center">
+                  <div className="flex items-center justify-between">
                     <div className="flex items-center text-sm text-gray-500">
                       <Users className="w-4 h-4 mr-1" />
                       {item.participants}
                     </div>
+                    {item.linkHref && (
+                      <a
+                        href={item.linkHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-yellow-600 hover:text-yellow-700 text-sm font-medium"
+                      >
+                        {item.linkText}
+                        <ChevronRight className="w-4 h-4 ml-1" />
+                      </a>
+                    )}
                   </div>
                 </CardContent>
               </Card>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button variant="outline" size="lg">
-              Voir toutes nos sorties spéléo
-              <ChevronRight className="w-5 h-5 ml-2" />
-            </Button>
           </div>
         </div>
       </section>
