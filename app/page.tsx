@@ -455,8 +455,8 @@ export default function FuretsJaunesWebsite() {
             <Badge className="mb-4 bg-yellow-100 text-yellow-800">Actualités</Badge>
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Nos Dernières Explorations</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Découvrez nos récentes sorties spéléologie et canyoning dans les Alpes. Revivez nos plus belles aventures
-              souterraines près de Grenoble.
+              Découvrez certaines de nos dernières sorties spéléologie et canyoning dans les Alpes. Revivez nos plus
+              belles aventures souterraines près de Grenoble.
             </p>
           </div>
 
