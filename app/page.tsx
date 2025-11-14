@@ -1,25 +1,25 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import {
-  Mountain,
-  Users,
-  Calendar,
-  Mail,
-  Facebook,
-  MapPin,
-  Shield,
-  Waves,
-  Star,
-  ChevronRight,
-  Menu,
-} from "lucide-react"
+import { Mountain, Users, Calendar, Mail, Facebook, MapPin, Shield, Waves, Star, ChevronRight, Menu } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
 import { ContactFormDialog } from "@/components/contact-form-dialog"
 
 export default function FuretsJaunesWebsite() {
   const newsItems = [
+    {
+      date: "13 Septembre",
+      title: "Exploration au Fond de Gournier - Salle des Burgondes",
+      description:
+        "Une expédition de 52 heures sous terre pour explorer la salle des Burgondes. 80 mètres d'escalade en première avec de magnifiques concrétions et de belles dents de cochon. D'autres escalades prometteuses restent à faire dans cette cavité fascinante.",
+      participants: "4 participants : Valentin, Ben, Cédric, Charles",
+      image: "/images/gournier-salle-burgondes.png",
+      alt: "Exploration spéléo Gournier - Expédition de 52 heures au fond de Gournier, exploration de la salle des Burgondes",
+      badge: "Nouveau",
+      linkText: "Voir la vidéo",
+      linkHref: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_9232-jpdFg5bIWq2DUjX9ZhEQ11ri2Hl7ki.MP4",
+    },
     {
       date: "Annuel",
       title: "Camps Dépollution Hauts-Plateaux - Protection Environnement",
@@ -28,7 +28,7 @@ export default function FuretsJaunesWebsite() {
       participants: "Sortie annuelle",
       image: "/images/hauts-plateaux-depollution.jpeg",
       alt: "Camp dépollution Hauts-Plateaux - Spéléologues protégeant la réserve naturelle du Vercors, paysage de montagne avec cabane et forêts de pins",
-      badge: "Nouveau",
+      badge: null, // Removed "Nouveau" badge
       linkText: "Voir la vidéo",
       linkHref: "https://www.facebook.com/reel/1278369720685161",
     },
@@ -36,13 +36,11 @@ export default function FuretsJaunesWebsite() {
       date: "29 Juin 2025",
       title: "Canyon des Écouges 2 - Sortie Canyoning Isère",
       description:
-        "Une sortie mémorable aux Écouges avec Andrea, Marie, Florian et Mael ! Un canyon ludique, des paysages magnifiques et une ambiance conviviale, malgré quelques petites péripéties. Un grand merci à Andrea pour les superbes photos !",
-      participants: "4 participants",
+        "Une sortie mémorable aux Écouges avec Andrea, Marie et Mael ! Un canyon ludique, des paysages magnifiques et une ambiance conviviale, malgré quelques petites péripéties. Un grand merci à Andrea pour les superbes photos !",
+      participants: "3 participants",
       image: "/images/ecouges-canyon.jpeg",
       alt: "Canyoning aux Écouges - Personnes descendant en rappel une cascade dans le canyon des Écouges, photo par Andrea",
-      badge: "Nouveau",
-      linkText: "Voir les photos",
-      linkHref: "#",
+      badge: null, // Removed "Nouveau" badge
     },
     {
       date: "7 Octobre 2023",
@@ -53,8 +51,6 @@ export default function FuretsJaunesWebsite() {
       image: "/images/training-knot.jpeg",
       alt: "Formation spéléologie - Deux spéléologues en formation, apprenant les techniques de corde en extérieur, photo par Eva Lourau",
       badge: null,
-      linkText: "Voir les photos",
-      linkHref: "#",
     },
     {
       date: "25 Janvier 2024",
@@ -65,8 +61,6 @@ export default function FuretsJaunesWebsite() {
       image: "/images/scialet-michelier-explorer.jpeg",
       alt: "Initiation spéléologie - Spéléologue débutant dans une grotte avec des formations rocheuses et des stalactites, photo par Eva Lourau",
       badge: null,
-      linkText: "Voir les photos",
-      linkHref: "#",
     },
   ]
 
@@ -500,6 +494,16 @@ export default function FuretsJaunesWebsite() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/galerie"
+              className="inline-flex items-center justify-center px-8 py-4 bg-yellow-400 text-gray-900 font-semibold rounded-lg hover:bg-yellow-500 transition-colors"
+            >
+              Voir Toute la Galerie Photo
+              <ChevronRight className="w-5 h-5 ml-2" />
+            </Link>
           </div>
         </div>
       </section>
